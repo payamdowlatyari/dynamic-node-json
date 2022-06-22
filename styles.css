@@ -1,0 +1,39 @@
+body{
+    background-color: azure;
+}
+
+.container-fluid{
+    padding: 1em;  
+}
+
+h3{
+    padding: 0.3em;
+    color: darkslategrey;
+}
+
+h4{
+    padding: 0.5em;
+    color: darkgreen;
+    opacity: 0.75;
+}
+
+h4:hover{
+   opacity: 1;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+.clicked {
+    transition: 1s;
+    color: midnightblue;
+    opacity: 1;
+    font-size: 2em;
+}
+
+.btn{
+    background-color: cornflowerblue;
+    color: aliceblue;
+    margin: 2em;
+    float: right;
+}
+
