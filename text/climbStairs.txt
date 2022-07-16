@@ -1,0 +1,23 @@
+const climbStairs = (n) => {
+    const memoized = climb();
+    return memoized(n);
+};
+
+const climb = () => {
+
+    let cache = {};
+    
+    return climbStairs(n) => {
+
+        if (n in cache) 
+            return cache[n];
+
+        else if (n >= 1 && n < 4) 
+            return n;
+            
+        else {
+            cache[n] = climbStairs(n-2) + climbStairs(n-1);
+            return cache[n];
+        }
+    }
+}

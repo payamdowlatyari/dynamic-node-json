@@ -2,8 +2,10 @@ const baseURI = "http://localhost:8080/api";
 
 
 const fetchQuestions = async() => {
+
     const res = await fetch(`${baseURI}/items`);
     const questions = await res.json();
+
     return questions;
 }
 
@@ -11,53 +13,81 @@ const fetchAppendQuestions = async() => {
 
     const questions = await fetchQuestions();
     const container = document.getElementById('container');
-
-       container.append(createRow(questions));
-       container.append(resetQ());
+    container.append(createRow(questions));  
 }
 
-const showAnswer = (element) => {
+const showCodeAnswer = (element) => {
+
+    fetch(element.code)
+        .then(response => response.text())
+        .then(text => toggleText = text);     
+
+    let toggleText = element.text;
+
     const span = document.createElement('span');
-    span.textContent = "Show Answer";
-    span.addEventListener('click', () => {
-        span.classList.add('clicked');
-        span.textContent = element.answer;
+    span.textContent = toggleText;
+
+    const pre = document.createElement('pre');
+    pre.classList.add('line-number');
+
+    const code = document.createElement('code');
+    code.classList.add('language-js');
+
+    pre.addEventListener('click', () => {
+
+            pre.classList.toggle('clicked');
+
+            if (span.textContent == element.text) 
+            span.textContent = toggleText;
+
+            else 
+            span.textContent = element.text;;
     }) 
-    return span;
+
+    code.append(span); 
+    pre.append(code);
+
+    return pre;
+}
+
+const createGroup = () => {
+    const groupDiv = document.createElement('div');
+    groupDiv.classList.add('group');
+    return groupDiv;
 }
 
 const createRow = (questions) => {
 
     const mainDiv = document.createElement('div');
+    let groupDiv = createGroup();
+
+    let group = '';
 
     questions.forEach(element => {
 
         const questionDiv = document.createElement('div');
         questionDiv.classList.add('question');
 
-        const h3 = document.createElement('h3');
-        h3.textContent = element.text;
-
         const h4 = document.createElement('h4');
-        h4.append(showAnswer(element));
+        h4.append(showCodeAnswer(element));
 
-        questionDiv.append(h3);
-        questionDiv.append(h4);
+        if (group !== element.group){
 
-        mainDiv.append(questionDiv); 
+            const h3 = document.createElement('h3');
+            
+            group = element.group;
+            h3.textContent = group;
+            questionDiv.append(h3);
+            groupDiv = createGroup();
+
+        }            
+            questionDiv.append(h4);
+            groupDiv.append(questionDiv);
+            mainDiv.append(groupDiv);
     });
 
     return mainDiv;
 }
 
-const resetQ = () => {
-    const res = document.createElement('button');
-    res.textContent = "Reset";
-    res.classList.add("btn");
-    res.addEventListener('click', () => {
-       window.location.reload();
-    })
-    return res;
-}
 
 fetchAppendQuestions();

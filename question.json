@@ -1,14 +1,57 @@
-[
+[ 
     {
-        "text": "How many days are in a week?",
-        "answer": "7"
+        "text": "Two Sum",
+        "code": "text/twoSum.txt",
+        "group": "Arrays and Hashing"
     },
     {
-        "text": "How many hours are in a day?",
-        "answer": "24"
+        "text": "Contains Duplicate",
+        "code": "text/containsDuplicate.txt",
+        "group": "Arrays and Hashing"
     },
     {
-        "text": "How many months are in a year?",
-        "answer": "12"
+        "text": "Product Except Self",
+        "code": "text/productExceptSelf.txt",
+        "group": "Arrays and Hashing"
+    },
+    {
+        "text": "Container with Most Water",
+        "code": "text/maxArea.txt",
+        "group": "Two Pointers"
+    },
+    {
+        "text": "Best Time to Buy & Sell Stock",
+        "code": "text/maxProfit.txt",
+        "group": "Sliding Window"
+    }, 
+    {
+        "text": "Find Minimum in Rotated Sorted Array",
+        "code": "text/findMin.txt",
+        "group": "Binary Search"
+    },
+    {
+        "text": "Reverse Linked List",
+        "code": "text/reverseLinkedList.txt",
+        "group": "Linked List"
+    },
+    {
+        "text": "Merge Two Lists",
+        "code": "text/mergeTwoLists.txt",
+        "group": "Linked List"
+    },
+    {
+        "text": "Remove Nth From End",
+        "code": "text/removeNthFromEnd.txt",
+        "group": "Linked List"
+    },
+    {
+        "text": "Linked List Cycle",
+        "code": "text/hasCycle.txt",
+        "group": "Linked List"
+    },
+    {
+        "text": "Climbing Stairs",
+        "code": "text/climbStairs.txt",
+        "group": "Dynamic Programming"
     }
 ]
