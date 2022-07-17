@@ -1,6 +1,6 @@
-// const baseURI = "http://localhost:8080/api";
-
-const baseURI = "https://github.com/payamdowlatyari/dynamic-node-json/api"
+const production  =  "https://github.com/payamdowlatyari/dynamic-node-json/api";
+const development = 'http://localhost:8080/api';
+const baseURI = (process.env.NODE_ENV ? production : development);
 
 const fetchQuestions = async() => {
 
