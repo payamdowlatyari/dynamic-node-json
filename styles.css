@@ -29,11 +29,29 @@ h4:hover{
     cursor: pointer;
 }
 
+@keyframes close {
+    0% {
+        transform: scale(1.02);
+        opacity: 0.5;
+      }
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+  }
+
 .line-number{
     background-color: #2E86C1;
     transition: 1s;
-    transform: scale(0.98,0.98);
     text-align: center;
+    animation: 
+    close
+    0.5s
+    ease-in
+    0s
+    normal
+    none
+    running;
 }
 
 .line-number:hover {
@@ -41,11 +59,28 @@ h4:hover{
     transition: 0.5s;
 }
 
+@keyframes stretch {
+    0% {
+        transform: scale(0.9);
+        background-color: #2E86C1;
+      }
+      100% {
+        transform: scale(1);
+      }
+  }
+
 .clicked{
     background-color: #212F3C;
     transition: 1s;
-    transform: scale(1,1);
     text-align: left;
+    animation: 
+    stretch
+    1s
+    ease-out
+    0s
+    normal
+    none
+    running;
 }
 
 .hidden {
