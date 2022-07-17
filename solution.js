@@ -1,4 +1,4 @@
-const baseURI  =  "https://github.com/payamdowlatyari/dynamic-node-json/api";
+const baseURI  =  "https://dynamic-node-json.herokuapp.com/api";
 // const development = 'http://localhost:8080/api';
 // const baseURI = (process.env.NODE_ENV ? production : development);
 
