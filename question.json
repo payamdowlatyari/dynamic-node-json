@@ -2,56 +2,73 @@
     {
         "text": "Two Sum",
         "code": "text/twoSum.txt",
+        "problem": "text/twoSumProblem.txt",
         "group": "Arrays and Hashing"
     },
     {
         "text": "Contains Duplicate",
         "code": "text/containsDuplicate.txt",
+        "problem": "text/containsDuplicateProblem.txt",
         "group": "Arrays and Hashing"
     },
     {
         "text": "Product Except Self",
         "code": "text/productExceptSelf.txt",
+        "problem": "text/productExceptSelfProblem.txt",
         "group": "Arrays and Hashing"
     },
     {
         "text": "Container with Most Water",
         "code": "text/maxArea.txt",
+        "problem": "text/maxAreaProblem.txt",
         "group": "Two Pointers"
     },
     {
         "text": "Best Time to Buy & Sell Stock",
         "code": "text/maxProfit.txt",
+        "problem": "text/maxProfitProblem.txt",
         "group": "Sliding Window"
     }, 
     {
         "text": "Find Minimum in Rotated Sorted Array",
         "code": "text/findMin.txt",
+        "problem": "text/findMinProblem.txt",
         "group": "Binary Search"
     },
     {
         "text": "Reverse Linked List",
         "code": "text/reverseLinkedList.txt",
+        "problem": "text/reverseLinkedListProblem.txt",
         "group": "Linked List"
     },
     {
         "text": "Merge Two Lists",
         "code": "text/mergeTwoLists.txt",
+        "problem": "text/mergeTwoListsProblem.txt",
         "group": "Linked List"
     },
     {
         "text": "Remove Nth From End",
         "code": "text/removeNthFromEnd.txt",
+        "problem": "text/removeNthFromEndProblem.txt",
         "group": "Linked List"
     },
     {
         "text": "Linked List Cycle",
         "code": "text/hasCycle.txt",
+        "problem": "text/hasCycleProblem.txt",
         "group": "Linked List"
     },
     {
         "text": "Climbing Stairs",
         "code": "text/climbStairs.txt",
+        "problem": "text/climbStairsProblem.txt",
+        "group": "Dynamic Programming"
+    },
+    {
+        "text": "Longest Common Subsequence",
+        "code": "text/longestCommonSubsequence.txt",
+        "problem": "text/longestCommonSubsequenceProblem.txt",
         "group": "Dynamic Programming"
     }
 ]

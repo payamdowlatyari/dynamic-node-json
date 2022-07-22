@@ -5,7 +5,6 @@ const fetchQuestions = async() => {
 
     const res = await fetch(`${baseURI}/items`);
     const questions = await res.json();
-
     return questions;
 }
 
@@ -15,8 +14,44 @@ const fetchAppendQuestions = async() => {
     const container = document.getElementById('container');
     container.before(createNavbar());
     container.append(createRow(questions));  
-   
     container.append(createFooter());
+}
+
+const showProblems = (element) => {
+
+    fetch(element.problem)
+        .then(response => response.text())
+        .then(text => toggleText = text);  
+
+    let toggleText = element.text;
+
+    const span = document.createElement('span');
+    
+    span.textContent = toggleText;
+
+    const pre = document.createElement('pre');
+    pre.classList.add('line-number');
+
+    const btn = closeBtn();
+   
+    btn.addEventListener('click', () => {
+        pre.classList.toggle('clicked');
+
+        if (span.textContent == element.text) {
+            span.textContent = toggleText;
+            span.classList.toggle('problem-text');
+            span.append(solutionBtn(element));  
+
+        }                 
+        else  {
+            span.textContent = element.text; 
+        }  
+    });
+   
+    pre.append(span);
+    pre.append(btn);
+    
+    return pre;
 }
 
 const showCodeAnswer = (element) => {
@@ -31,43 +66,40 @@ const showCodeAnswer = (element) => {
     span.textContent = toggleText;
 
     const pre = document.createElement('pre');
-    pre.classList.add('line-number');
+    pre.classList.add('solution-line');
     
     const code = document.createElement('code');
-    code.classList.add('language-js');
-
    
-
     const btn = closeBtn();
-    pre.append(code);
    
     btn.addEventListener('click', () => {
-            pre.classList.toggle('clicked');
+
+            pre.classList.toggle('solution-clicked');
 
             if (span.textContent == element.text) {
                 span.textContent = toggleText;
+                code.classList.toggle('language-js');
                 span.append(copyText(span.textContent));
+            }                 
+            else {             
+                span.textContent = element.text;   
             }
-                      
-            else 
-            span.textContent = element.text;   
-  
-    }) 
-    pre.append(btn);
-    code.append(span); 
-    
+    });
 
+    code.append(span); 
+    pre.append(code);
+    pre.append(btn);
     return pre;
 }
 
 const copyText = (code) => {
     const copyBtn = document.createElement('button');
-    copyBtn.innerHTML = '<i class="bi bi-stickies"></i>';
+    copyBtn.innerHTML = '<i class="bi bi-clipboard"></i>';
     copyBtn.classList.toggle('sm-btn');
 
     copyBtn.addEventListener('click', () => {
         navigator.clipboard.writeText(code);
-        copyBtn.innerHTML = '<i class="bi bi-stickies-fill"></i>';
+        copyBtn.innerHTML = '<i class="bi bi-check-lg"></i>';
     });
     return copyBtn;
 }
@@ -84,6 +116,22 @@ const closeBtn = () => {
         btn.innerHTML = '<i class="bi bi-chevron-down"></i>';
     })
     return btn;
+}
+
+
+const solutionBtn = (element) => {
+    const btn = document.createElement('button');
+    btn.innerHTML = '<i class="bi bi-code-slash"></i>';
+    btn.classList.add('sm-btn');
+
+    const div = document.createElement('div');
+    div.classList.add('selected');
+
+    btn.addEventListener('click', () => {
+        div.replaceWith(showCodeAnswer(element));
+    })
+    div.append(btn);
+    return div;
 }
 
 const createGroup = () => {
@@ -103,25 +151,23 @@ const createRow = (questions) => {
 
         const questionDiv = document.createElement('div');
         questionDiv.classList.add('question');
-
-        const h4 = document.createElement('h4');
-        h4.append(showCodeAnswer(element));
+       
+        const problem = document.createElement('div');
+        questionDiv.append(problem);
 
         if (group !== element.group){
 
-            const h3 = document.createElement('h3');
-            
+            const h3 = document.createElement('h3');       
             group = element.group;
             h3.textContent = group;
             questionDiv.append(h3);
             groupDiv = createGroup();
-
         }            
-            questionDiv.append(h4);
+            questionDiv.append(showProblems(element)) 
             groupDiv.append(questionDiv);
             mainDiv.append(groupDiv);
     });
-
+    
     return mainDiv;
 }
 
@@ -139,15 +185,12 @@ const mode = () => {
             bg.style.backgroundColor = '#FEF9E7'; 
             for(let i = 0; i < h3.length; i++) { h3[i].style.color = '#17202A';}
         }
-        
         else {
             icon.innerHTML = '<i class="bi bi-sun-fill"></i>';
             bg.style.backgroundColor = '#17202A'; 
             for(let i = 0; i < h3.length; i++) { h3[i].style.color = '#FEF9E7';}
         }
-       
     });
-
     return icon;
 }
 
@@ -162,7 +205,7 @@ const createNavbar = () => {
     brand.innerHTML = '<i class="bi bi-house-fill"></i>';
 
     const title = document.createElement('a');
-    title.href = '/';
+    title.href = 'https://payamdowlatyari.github.io/dynamic-node-json/';
     title.classList.add('main-title');
     title.text = 'Algorithms for Life';
 
