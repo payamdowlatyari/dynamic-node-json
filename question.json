@@ -30,6 +30,12 @@
         "group": "Sliding Window"
     }, 
     {
+        "text": "Valid Parentheses",
+        "code": "text/isValid.txt",
+        "problem": "text/isValidProblem.txt",
+        "group": "Stack"
+    }, 
+    {
         "text": "Find Minimum in Rotated Sorted Array",
         "code": "text/findMin.txt",
         "problem": "text/findMinProblem.txt",
@@ -70,5 +76,17 @@
         "code": "text/longestCommonSubsequence.txt",
         "problem": "text/longestCommonSubsequenceProblem.txt",
         "group": "Dynamic Programming"
+    },
+    {
+        "text": "Invert Binary Tree",
+        "code": "text/invertTree.txt",
+        "problem": "text/invertTreeProblem.txt",
+        "group": "Tree"
+    },
+    {
+        "text": "Maximum Depth of Binary Tree",
+        "code": "text/maxDepth.txt",
+        "problem": "text/maxDepthProblem.txt",
+        "group": "Tree"
     }
 ]

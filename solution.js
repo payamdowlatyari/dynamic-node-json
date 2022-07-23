@@ -26,7 +26,6 @@ const showProblems = (element) => {
     let toggleText = element.text;
 
     const span = document.createElement('span');
-    
     span.textContent = toggleText;
 
     const pre = document.createElement('pre');
@@ -36,12 +35,10 @@ const showProblems = (element) => {
    
     btn.addEventListener('click', () => {
         pre.classList.toggle('clicked');
-
+        span.classList.toggle('problem-text');
         if (span.textContent == element.text) {
             span.textContent = toggleText;
-            span.classList.toggle('problem-text');
             span.append(solutionBtn(element));  
-
         }                 
         else  {
             span.textContent = element.text; 
@@ -78,7 +75,6 @@ const showCodeAnswer = (element) => {
 
             if (span.textContent == element.text) {
                 span.textContent = toggleText;
-                code.classList.toggle('language-js');
                 span.append(copyText(span.textContent));
             }                 
             else {             
@@ -93,6 +89,7 @@ const showCodeAnswer = (element) => {
 }
 
 const copyText = (code) => {
+
     const copyBtn = document.createElement('button');
     copyBtn.innerHTML = '<i class="bi bi-clipboard"></i>';
     copyBtn.classList.toggle('sm-btn');
@@ -118,7 +115,6 @@ const closeBtn = () => {
     return btn;
 }
 
-
 const solutionBtn = (element) => {
     const btn = document.createElement('button');
     btn.innerHTML = '<i class="bi bi-code-slash"></i>';
@@ -130,7 +126,7 @@ const solutionBtn = (element) => {
     btn.addEventListener('click', () => {
         div.replaceWith(showCodeAnswer(element));
     })
-    div.append(btn);
+    div.prepend(btn);
     return div;
 }
 
@@ -145,26 +141,37 @@ const createRow = (questions) => {
     const mainDiv = document.createElement('div');
     let groupDiv = createGroup();
 
+    let groupName =  document.createElement('h3'); 
     let group = '';
 
-    questions.forEach(element => {
-
-        const questionDiv = document.createElement('div');
-        questionDiv.classList.add('question');
-       
-        const problem = document.createElement('div');
-        questionDiv.append(problem);
+    questions.forEach(element => { 
 
         if (group !== element.group){
 
-            const h3 = document.createElement('h3');       
+            groupName = document.createElement('h3'); 
+            groupName.classList.add('group-name');      
             group = element.group;
-            h3.textContent = group;
-            questionDiv.append(h3);
+            groupName.textContent = group;           
             groupDiv = createGroup();
-        }            
-            questionDiv.append(showProblems(element)) 
-            groupDiv.append(questionDiv);
+            groupDiv.append(groupName);
+
+        }   
+            
+        const questionDiv = document.createElement('div');
+            
+        groupDiv.append(questionDiv);
+          
+            groupName.addEventListener('click', () => { 
+                if (questionDiv.innerHTML == ''){
+                    questionDiv.classList.toggle('question');    
+                    questionDiv.append(showProblems(element));
+                }               
+                else{
+                    questionDiv.classList.toggle('group-clicked');
+                    questionDiv.innerHTML = '';   
+                }
+             })
+
             mainDiv.append(groupDiv);
     });
     
@@ -177,13 +184,16 @@ const mode = () => {
     icon.innerHTML = '<i class="bi bi-sun-fill"></i>';
 
     let bg =  document.getElementById('container');
-    let h3 = document.getElementsByTagName('h3');
+    let h3 = document.getElementsByClassName('line-number');
 
     icon.addEventListener('click', () => {
         if (icon.innerHTML == '<i class="bi bi-sun-fill"></i>') {
             icon.innerHTML = '<i class="bi bi-moon-fill"></i>';
             bg.style.backgroundColor = '#FEF9E7'; 
-            for(let i = 0; i < h3.length; i++) { h3[i].style.color = '#17202A';}
+            for(let i = 0; i < h3.length; i++) { 
+                h3[i].style.color = '#FEF9E7';
+                h3[i].style.backgroundColor = '#212F3C';
+            }
         }
         else {
             icon.innerHTML = '<i class="bi bi-sun-fill"></i>';

@@ -29,25 +29,20 @@ pre {
 }
 
 h3 {
+    background-color: #2E86C1;
     text-align: center;
+    letter-spacing: 0.1em;
+    font-size: 1.25em;
     font-family: 'Trebuchet MS', sans-serif;
     color: #FEF9E7;
-    padding: 0.2em;
+    padding: 0.5em;
     margin: 0.3em;
-}
-
-h4{
-    font-size: 1em;
-}
-
-h4:hover{
-    cursor: pointer;
 }
 
 @keyframes close {
     0% {
         transform: scale(1.02);
-        opacity: 0.5;
+        opacity: 0.75;
       }
       100% {
         transform: scale(1);
@@ -56,7 +51,7 @@ h4:hover{
   }
 
 .line-number{
-    background-color: #2E86C1;
+    background-color: #212F3C;
     transition: 1s;
     text-align: center;
     padding-left: 30px;
@@ -69,10 +64,10 @@ h4:hover{
     none
     running;
     padding-top: 1em;
+    border: 00.1px solid #212F3C;
 }
 
 .line-number:hover {
-    background-color: #212F3C;
     transition: 0.5s;
 }
 
@@ -182,12 +177,83 @@ h4:hover{
     transform: translate(25px, 25px);
 }
 
+
+@keyframes group-open {
+    0% {
+        transform: scale(0.9);
+      }
+      100% {
+        transform: scale(1);
+      }
+  }
+
+
+  @keyframes group-close {
+    0% {
+        transform: scale(1.02);
+        opacity: 0.5;
+      }
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+  }
+
+.question {
+    transition: 1s;
+    border: none;
+    border-radius: 5px;
+    animation: 
+    group-close
+    1s
+    ease-in-out
+    0s
+    normal
+    none
+    running;
+}
+
+.group {
+    padding: 0.1em;
+}
+
+.group:hover{
+    cursor: pointer;
+}
+
+.group h3:hover {
+    transition: 0.5s ease-in-out;
+    transform: scale(1.01);
+}
+
+.group-clicked {
+    transition: 1s;
+    animation: 
+    group-open
+    1s
+    ease-out
+    0s
+    normal
+    none
+    running;
+}
+
+.group-name{
+    margin: 0 auto;
+    border-radius: 5px;
+    padding: 0.75em;
+    margin-top: 0.75em;
+    margin-bottom: 0.75em;
+
+}
+
 .footer {
-    padding-top: 2em;
+    padding-top: 3em;
     font-size: small;
     color: #aaa;
     text-align: center;
     position: relative;
+    top: auto;
     bottom: 0;
     left: 0;
     right: 0;
@@ -224,12 +290,17 @@ h4:hover{
 }
 
 .problem-text {
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family: 'Trebuchet MS', sans-serif;
 }
 
 .selected {
    display: block;
 }
+
+.invisible {
+    visibility: hidden;
+}
+
 
 
 
