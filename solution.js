@@ -160,15 +160,19 @@ const createRow = (questions) => {
         const questionDiv = document.createElement('div');
             
         groupDiv.append(questionDiv);
-          
+        questionDiv.classList.add('question');  
+        questionDiv.classList.add('group-closed'); 
+
             groupName.addEventListener('click', () => { 
                 if (questionDiv.innerHTML == ''){
-                    questionDiv.classList.toggle('question');    
                     questionDiv.append(showProblems(element));
+                    questionDiv.classList.add('group-clicked');
+                    questionDiv.classList.remove('group-closed');
                 }               
                 else{
-                    questionDiv.classList.toggle('group-clicked');
-                    questionDiv.innerHTML = '';   
+                    questionDiv.innerHTML = '';  
+                    questionDiv.classList.add('group-closed');
+                    questionDiv.classList.remove('group-clicked'); 
                 }
              })
 
@@ -194,7 +198,7 @@ const mode = () => {
                 h3[i].style.color = '#FEF9E7';
                 h3[i].style.backgroundColor = '#212F3C';
             }
-        }
+        }      
         else {
             icon.innerHTML = '<i class="bi bi-sun-fill"></i>';
             bg.style.backgroundColor = '#17202A'; 
@@ -234,5 +238,5 @@ const createFooter = () => {
     return footer;
 }
 
-
+// main function call
 fetchAppendQuestions();
