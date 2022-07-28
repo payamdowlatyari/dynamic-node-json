@@ -21,7 +21,7 @@ body{
 pre {
     padding: 1em;
     color: #FEF9E7;
-    transform: scale(0.96);
+    transform: scale(0.98);
     border-radius: 5px;
 }
 
@@ -49,7 +49,7 @@ h3:hover {
         opacity: 0.75;
       }
       100% {
-        transform: scale(0.96);
+        transform: scale(0.98);
         opacity: 1;
       }
   }
@@ -81,7 +81,7 @@ h3:hover {
         background-color: #2E86C1;
       }
       100% {
-        transform: scale(0.96);
+        transform: scale(0.98);
       }
   }
 
@@ -131,7 +131,7 @@ h3:hover {
 }
 
 .clicked:hover {
-    transform: scale(0.96);
+    transform: scale(0.98);
 }
 
 .clicked .sm-btn:hover {
@@ -167,12 +167,12 @@ h3:hover {
     none
     running;
     padding: 3em;
-    transform: scale(0.96);
+    transform: scale(0.98);
 }
 
 .solution-clicked:hover {
     background-color: #17202A;
-    transform: scale(0.96);
+    transform: scale(0.98);
 }
 
 .clicked .sm-btn:hover {
