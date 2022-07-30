@@ -24,7 +24,6 @@ const showProblems = (element) => {
         .then(text => toggleText = text);  
 
     let toggleText = element.text;
-
     const span = document.createElement('span');
     span.textContent = toggleText;
 
@@ -32,7 +31,6 @@ const showProblems = (element) => {
     pre.classList.add('line-number');
 
     const btn = closeBtn();
-   
     btn.addEventListener('click', () => {
         pre.classList.toggle('clicked');
         span.classList.toggle('problem-text');
@@ -44,7 +42,6 @@ const showProblems = (element) => {
             span.textContent = element.text; 
         }  
     });
-   
     pre.append(span);
     pre.append(btn);
     
@@ -58,7 +55,6 @@ const showCodeAnswer = (element) => {
         .then(text => toggleText = text);   
           
     let toggleText = element.text;
-
     const span = document.createElement('span');
     span.textContent = toggleText;
 
@@ -66,9 +62,8 @@ const showCodeAnswer = (element) => {
     pre.classList.add('solution-line');
     
     const code = document.createElement('code');
-   
     const btn = closeBtn();
-   
+
     btn.addEventListener('click', () => {
 
             pre.classList.toggle('solution-clicked');
@@ -81,10 +76,10 @@ const showCodeAnswer = (element) => {
                 span.textContent = element.text;   
             }
     });
-
     code.append(span); 
     pre.append(code);
     pre.append(btn);
+
     return pre;
 }
 
@@ -93,7 +88,6 @@ const copyText = (code) => {
     const copyBtn = document.createElement('button');
     copyBtn.innerHTML = '<i class="bi bi-clipboard"></i>';
     copyBtn.classList.toggle('sm-btn');
-
     copyBtn.addEventListener('click', () => {
         navigator.clipboard.writeText(code);
         copyBtn.innerHTML = '<i class="bi bi-check-lg"></i>';
@@ -104,13 +98,16 @@ const copyText = (code) => {
 const closeBtn = () => {
     const btn = document.createElement('button');
     btn.innerHTML = '<i class="bi bi-chevron-down"></i>';
-    btn.classList.add('sm-btn');
-
+    btn.classList.add('sm-btn','blink');
     btn.addEventListener('click', () => {
-        if (btn.innerHTML == '<i class="bi bi-chevron-down"></i>')
-        btn.innerHTML = '<i class="bi bi-chevron-up"></i>';
-        else
-        btn.innerHTML = '<i class="bi bi-chevron-down"></i>';
+        if (btn.innerHTML == '<i class="bi bi-chevron-down"></i>'){
+            btn.innerHTML = '<i class="bi bi-chevron-up"></i>';
+            btn.classList.remove('blink');
+        }      
+        else {
+            btn.innerHTML = '<i class="bi bi-chevron-down"></i>';
+            btn.classList.add('blink');
+        }
     })
     return btn;
 }
@@ -147,14 +144,12 @@ const createRow = (questions) => {
     questions.forEach(element => { 
 
         if (group !== element.group){
-
             groupName = document.createElement('h3'); 
             groupName.classList.add('group-name');      
             group = element.group;
             groupName.textContent = group;           
             groupDiv = createGroup();
             groupDiv.append(groupName);
-
         }   
             
         const questionDiv = document.createElement('div');
@@ -175,10 +170,8 @@ const createRow = (questions) => {
                     questionDiv.classList.remove('group-clicked'); 
                 }
              })
-
             mainDiv.append(groupDiv);
     });
-    
     return mainDiv;
 }
 
@@ -188,21 +181,18 @@ const mode = () => {
     icon.innerHTML = '<i class="bi bi-sun-fill"></i>';
 
     let bg =  document.getElementById('container');
-    let h3 = document.getElementsByClassName('line-number');
+    bg.classList.add('bg-night');
 
     icon.addEventListener('click', () => {
         if (icon.innerHTML == '<i class="bi bi-sun-fill"></i>') {
             icon.innerHTML = '<i class="bi bi-moon-fill"></i>';
-            bg.style.backgroundColor = '#FEF9E7'; 
-            for(let i = 0; i < h3.length; i++) { 
-                h3[i].style.color = '#FEF9E7';
-                h3[i].style.backgroundColor = '#212F3C';
-            }
+            bg.classList.add('bg-day');
+            bg.classList.remove('bg-night');
         }      
         else {
             icon.innerHTML = '<i class="bi bi-sun-fill"></i>';
-            bg.style.backgroundColor = '#17202A'; 
-            for(let i = 0; i < h3.length; i++) { h3[i].style.color = '#FEF9E7';}
+            bg.classList.add('bg-night');
+            bg.classList.remove('bg-day');
         }
     });
     return icon;
@@ -226,8 +216,7 @@ const createNavbar = () => {
     container.append(brand);
     container.append(title);
     container.append(mode());
-    nav.append(container)
-   
+    nav.append(container);
     return nav;
 }
 

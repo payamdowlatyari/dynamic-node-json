@@ -26,7 +26,17 @@ pre {
 }
 
 .container-fluid{
-    padding: 2em;  
+    padding: 2em; 
+}
+
+.bg-night{
+    transition: 1s;
+    background-color: #17202A;    
+}
+
+.bg-day{
+    transition: 2s;
+    background-color: #FEF9E7;
 }
 
 h3 {
@@ -37,10 +47,6 @@ h3 {
     color: #FEF9E7;
     padding: 0.5em;
     margin: 0.3em;
-}
-
-h3:hover {
-    color: #5DADE2;
 }
 
 @keyframes close {
@@ -68,6 +74,7 @@ h3:hover {
     none
     running;
     padding-top: 1em;
+    border: 0.1px solid #a0a0a0;
 }
 
 .line-number:hover {
@@ -78,7 +85,6 @@ h3:hover {
 @keyframes stretch {
     0% {
         transform: scale(0.9);
-        background-color: #2E86C1;
       }
       100% {
         transform: scale(0.98);
@@ -99,6 +105,7 @@ h3:hover {
     none
     running;
     padding: 2.5em;
+    border: 0.1px solid #a0a0a0;
 }
 
 .hidden {
@@ -229,11 +236,12 @@ h3:hover {
 
 .group {
     background-color: #212F3C;
-    border-radius: 5px;
+    border-radius: 10px;
 }
 
 .group:hover{
     cursor: pointer;
+    transition: 1s;
 }
 
 .group h3:hover {
@@ -271,13 +279,12 @@ h3:hover {
     padding: 0.75em;
     margin-top: 0.75em;
     margin-bottom: 0.75em;
-
 }
 
 .footer {
     padding-top: 3em;
     font-size: small;
-    color: #aaa;
+    color: #a0a0a0;
     text-align: center;
     position: relative;
     top: auto;
@@ -301,18 +308,20 @@ h3:hover {
    height: 10vh;
    padding-top: 0em;
    vertical-align: text-top;
-   background-color: #212F3C;
+   background-color: #17202A;
+   box-shadow: 1px -1px 1px 1px #FEF9E7;
 }
 
 .navbar a {
     vertical-align: text-top;
     color: #FEF9E7;
+    opacity: 0.9;
     text-decoration: none;
     transform: scale(1.5);
 }
 
 .navbar a:hover {
-    color: #2E86C1;
+    opacity: 1;
     transition: 0.3s;
 }
 
@@ -327,6 +336,48 @@ h3:hover {
 .invisible {
     visibility: hidden;
 }
+
+.bi-sun-fill:hover{
+    transition: 0.5s;
+    color: #F7DC6F;
+}
+
+.bi-moon-fill:hover{
+    transition: 0.5s;
+    color: #2E86C1;
+}
+
+.bi-house-fill:hover {
+    transition: 0.5s;
+    color: #1ABC9C;
+}
+
+.blink {
+    animation: open-arrow 5s ease 0s infinite normal forwards;
+}
+
+@keyframes open-arrow {
+	0% {
+		opacity: 1;
+	}
+
+    25% {
+        opacity: 0.3;
+    }
+
+	50% {
+		opacity: 1;
+	}
+
+    75% {
+        opacity: 1;
+    }
+
+	100% {
+		opacity: 1;
+	}
+}
+
 
 
 
