@@ -206,7 +206,7 @@ const createNavbar = () => {
     container.classList.add('container-fluid');
     const brand = document.createElement('a');
     brand.href = 'https://www.payamd.com/';
-    brand.innerHTML = '<i class="bi bi-house-fill"></i>';
+    brand.innerHTML =  '<img id="home-logo" src="/img/payamd-logo-white-500x320.png" alt="home logo"/>';
 
     const title = document.createElement('a');
     title.href = 'https://payamdowlatyari.github.io/dynamic-node-json/';

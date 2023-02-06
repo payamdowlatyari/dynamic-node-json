@@ -1,5 +1,11 @@
+:root {
+    --bgday : #FEF9E7;
+    --bgnight : #17202A;
+    --hover: #2E86C1;
+}
+
 body{
-    background-color: #17202A;
+    background-color: var(--bgnight);
 }
 
 .mode {
@@ -10,7 +16,7 @@ body{
 
 .mode:hover {
     transition: 0.3s;
-    color: #2E86C1;
+    color: var(--hover)
 }
 
 .main-title{
@@ -31,12 +37,18 @@ pre {
 
 .bg-night{
     transition: 1s;
-    background-color: #17202A;    
+    background-color: var(--bgnight);
+    /* background-color: #17202A;     */
 }
 
 .bg-day{
     transition: 2s;
-    background-color: #FEF9E7;
+    background-color: var(--bgday);
+    /* background-color: #FEF9E7; */
+}
+
+#home-logo {
+    width: 50px;
 }
 
 h3 {
