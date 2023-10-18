@@ -1,5 +1,5 @@
-const baseURI  =  "https://dynamic-node-json.herokuapp.com/api";
-// const baseURI = 'http://localhost:8080/api';
+// const baseURI  =  "https://dynamic-node-json.herokuapp.com/api";
+const baseURI = 'http://localhost:8080/api';
 
 const fetchQuestions = async() => {
 
@@ -183,18 +183,32 @@ const mode = () => {
     let bg =  document.getElementById('container');
     bg.classList.add('bg-night');
 
+    let grp = document.getElementsByClassName('group-name'); 
+
+
     icon.addEventListener('click', () => {
         if (icon.innerHTML == '<i class="bi bi-sun-fill"></i>') {
             icon.innerHTML = '<i class="bi bi-moon-fill"></i>';
             bg.classList.add('bg-day');
             bg.classList.remove('bg-night');
+            for (let i = 0; i < grp.length; i++){
+                    grp[i].classList.add('color-light');
+                    grp[i].classList.remove('color-dark');
+                }      
         }      
         else {
             icon.innerHTML = '<i class="bi bi-sun-fill"></i>';
             bg.classList.add('bg-night');
             bg.classList.remove('bg-day');
+            for (let i = 0; i < grp.length; i++){
+                grp[i].classList.add('color-dark');
+                grp[i].classList.remove('color-light');
+            }      
         }
+      
     });
+    
+
     return icon;
 }
 

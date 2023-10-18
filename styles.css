@@ -1,7 +1,8 @@
 :root {
     --bgday : #FEF9E7;
-    --bgnight : #17202A;
+    --bgnight : #212F3C;
     --hover: #2E86C1;
+    --border: #a0a0a0;
 }
 
 body{
@@ -32,23 +33,33 @@ pre {
 }
 
 .container-fluid{
-    padding: 2em; 
+    padding: 1em; 
 }
 
 .bg-night{
     transition: 1s;
     background-color: var(--bgnight);
-    /* background-color: #17202A;     */
 }
 
 .bg-day{
     transition: 2s;
     background-color: var(--bgday);
-    /* background-color: #FEF9E7; */
+}
+
+.color-light {
+    background-color: var(--bgday);
+    color: var(--bgnight);
+    border: solid var(--border);
+}
+
+.color-dark {
+    background-color: var(--bgnight);
+    color: var(--bgday);
+    border: solid var(--border);
 }
 
 #home-logo {
-    width: 50px;
+    width: 90px;
 }
 
 h3 {
@@ -329,7 +340,6 @@ h3 {
     color: #FEF9E7;
     opacity: 0.9;
     text-decoration: none;
-    transform: scale(1.5);
 }
 
 .navbar a:hover {
