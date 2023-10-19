@@ -1,13 +1,20 @@
-const baseURI  =  "https://dynamic-node-json.vercel.app/api";
-// const baseURI = 'http://localhost:8080/api';
+// const baseURI  =  "https://dynamic-node-json.vercel.app/api";
+const baseURI = 'http://localhost:4000';
 
 const fetchQuestions = async() => {
 
-    const res = await fetch(`${baseURI}/items` , 
-    {mode: 'cors',
-    credentials: 'include'});
+    const res = await fetch(`${baseURI}` , {
+        method: 'POST',
+        headers : {
+            "content-type": "application/json; charset=utf-8"
+        },
+        body: JSON.stringify({query: "{questions{id,group,text,code,problem}}"})
+    })
+    
     const questions = await res.json();
-    return questions;
+
+    console.log(questions.data.questions)
+    return questions.data.questions;
 }
 
 const fetchAppendQuestions = async() => {
@@ -146,6 +153,7 @@ const createRow = (questions) => {
     questions.forEach(element => { 
 
         if (group !== element.group){
+
             groupName = document.createElement('h3'); 
             groupName.classList.add('group-name');      
             group = element.group;
@@ -222,7 +230,8 @@ const createNavbar = () => {
     container.classList.add('container-fluid');
     const brand = document.createElement('a');
     brand.href = 'https://www.payamd.com/';
-    brand.innerHTML =  '<img id="home-logo" src="/img/payamd-logo-white-500x320.png" alt="home logo"/>';
+    brand.text = 'payamd'
+    // brand.innerHTML =  '<img id="home-logo" src="/img/payamd-logo-white-500x320.png" alt="home logo"/>';
 
     const title = document.createElement('a');
     title.href = 'https://payamdowlatyari.github.io/dynamic-node-json/';
