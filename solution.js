@@ -1,5 +1,5 @@
-// const baseURI  =  "https://dynamic-node-json.vercel.app/api";
-const baseURI = 'http://localhost:4000';
+const baseURI  =  "https://dynamic-node-json.vercel.app/api";
+// const baseURI = 'http://localhost:4000';
 
 const fetchQuestions = async() => {
 
