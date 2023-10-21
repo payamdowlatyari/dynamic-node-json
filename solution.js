@@ -16,7 +16,7 @@ const fetchAppendQuestions = async() => {
     const container = document.getElementById('container');
     container.before(createNavbar());
     container.append(createRow(questions));  
-    container.append(createFooter());
+    container.after(createFooter());
 }
 
 const showProblems = (element) => {
@@ -222,7 +222,7 @@ const createNavbar = () => {
     container.classList.add('container-fluid');
     const brand = document.createElement('a');
     brand.href = 'https://www.payamd.com/';
-    brand.innerHTML =  '<img id="home-logo" src="/img/payamd-logo-white-500x320.png" alt="home logo"/>';
+    brand.innerHTML =  '<img id="home-logo" src="img/payamd-logo-white-500x320.png" alt="home logo"/>';
 
     const title = document.createElement('a');
     title.href = 'https://payamdowlatyari.github.io/dynamic-node-json/';
@@ -239,7 +239,8 @@ const createNavbar = () => {
 const createFooter = () => {
     const footer = document.createElement('div');
     footer.classList.add('footer');
-    footer.innerHTML = 'Designed by <a href="https://www.payamd.com/"> payamd.com </a> © 2022';
+    let date = new Date();
+    footer.innerHTML = 'Designed by <a href="https://www.payamd.com/"> payamd.com </a> © ' + date.getFullYear();
     return footer;
 }
 

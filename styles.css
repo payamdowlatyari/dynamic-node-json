@@ -7,6 +7,7 @@
 
 body{
     background-color: var(--bgnight);
+    min-height: 100vh;
 }
 
 .mode {
@@ -59,7 +60,7 @@ pre {
 }
 
 #home-logo {
-    width: 90px;
+    width: 75px;
 }
 
 h3 {
@@ -309,7 +310,10 @@ h3 {
     font-size: small;
     color: #a0a0a0;
     text-align: center;
-    position: relative;
+    position: fixed;
+    padding: 0.5em;
+    background-color: #17202A;
+    box-shadow: 0.1px -0.1px 1px #FEF9E7;
     top: auto;
     bottom: 0;
     left: 0;

@@ -9,24 +9,16 @@ const items = JSON.parse(data);
 // To solve the cors issue
 const cors = require('cors');
 app.use(express.static('public'));
-app.use(cors());
-
-app.use(function(req, res, next) {
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
-    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
-    res.setHeader('Access-Control-Allow-Credentials', true);
-    next();
-});
+app.use(cors({
+    origin: ["http://127.0.0.1:5500"],
+    methods: ["POST","GET"],
+    credentials: true
+}));
 
 // GET request
 app.get('/api/items', (req, res) => {
     res.send(items);
 });
-
-app.get('/api', (req, res) => {
-    res.send('This is my testing route..... ')
-  })
 
 //PORT ENVIRONMENT VARIABLE
 const port = process.env.PORT || 8080;
