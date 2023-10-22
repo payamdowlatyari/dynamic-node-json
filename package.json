@@ -2,10 +2,10 @@
   "name": "questions",
   "version": "1.0.0",
   "description": "",
-  "main": "service.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node service.js"
+    "start": "node index.js"
   },
   "author": "Payam Dowlatyari",
   "license": "ISC",
