@@ -10,7 +10,7 @@ const items = JSON.parse(data);
 const cors = require('cors');
 app.use(express.static('public'));
 app.use(cors({
-    origin: ["https://dynamic-node-json.vercel.app"],
+    origin: ["*"],
     methods: ["POST","GET"],
     credentials: true
 }));
