@@ -10,7 +10,7 @@
       
       {
         "src": "/(.*)",
-        "dest": "clint/index.html"
+        "dest": "clint/solution.js"
       }
     ]
   }
