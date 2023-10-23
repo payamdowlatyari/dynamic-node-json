@@ -4,16 +4,12 @@ const baseURI  =  "https://dynamic-node-json.vercel.app/api";
 const fetchQuestions = async() => {
 
     const res = await fetch(`${baseURI}/items`, {
-        // mode: 'no-cors',
-        // credentials: 'include',
-        // method: 'GET'
-        // headers: {
-        //     'Content-Type': 'application/json'
-        //   }
+        mode: 'cors'
     });
 
     console.log(res);
     const questions = await res.json();
+    console.log(questions);
     return questions;
 }
 

@@ -10,10 +10,10 @@ const items = JSON.parse(data);
 const cors = require('cors');
 app.use(express.static('public'));
 app.use(cors({
-    origin: ["*"],
-    methods: ["POST","GET"],
-    credentials: true,
-    content: 'application/json'
+    origin: "*",
+    // methods: ["POST","GET"],
+    // credentials: true,
+    // content: 'application/json'
 }));
 
 // GET request
